@@ -32,7 +32,7 @@ seajs.use(['$'], function($) {
 
 });
 
-seajs.use(['$', 'arale/popup/1.1.6/popup', 'gallery/underscore/1.5.2/underscore'], function($, Popup, _) {
+seajs.use(['$', 'jquery/popover/3.1.1/popover', 'gallery/underscore/1.6.0/underscore'], function($, Popup, _) {
 
   if ($('#sidebar-wrapper').length === 0) {
     return;
@@ -44,7 +44,7 @@ seajs.use(['$', 'arale/popup/1.1.6/popup', 'gallery/underscore/1.5.2/underscore'
   var version = $('#sidebar-wrapper .version a').html();
   version = (version || '').toLowerCase();
 
-  new Popup({
+  /*new Popup({
     trigger: '#maintainers',
     template: '<div class="popup-install">强烈建议提交 issue 交流（点击上方[讨论]），您会得到更高质量的反馈。</div>',
     effect: 'fade',
@@ -52,10 +52,11 @@ seajs.use(['$', 'arale/popup/1.1.6/popup', 'gallery/underscore/1.5.2/underscore'
     align: {
       baseXY: [0, '100%+5']
     }
-  });
+  });*/
+
 
   // output card
-  if ($('#module-output')[0] && Popup) {
+  /*if ($('#module-output')[0] && Popup) {
     new Popup({
       trigger: '#module-output li a',
       element: '#output-card',
@@ -67,7 +68,10 @@ seajs.use(['$', 'arale/popup/1.1.6/popup', 'gallery/underscore/1.5.2/underscore'
         .attr('href', this.activeTrigger.attr('href'));
       }
     });
-  }
+  }*/
+  $('#module-output li a').popover({
+    trigger: 'hover'
+  });
 
   // 本地调试时直接返回
   if (location.port) {
@@ -84,8 +88,8 @@ seajs.use(['$', 'arale/popup/1.1.6/popup', 'gallery/underscore/1.5.2/underscore'
     versionDocLink = '/+/' + family +'/' + name + '/';
     lastestLink = '/' + family +'/' + name + '/';
   } else {
-    spmLink =  'https://spmjs.org/'+family+'/'+name+'/'+version;
-    versionJsonLink = 'https://spmjs.org/repository/' + family + '/' + name + '/?define';
+    spmLink =  'http://ue.17173cdn.com/a/lib/'+family+'/'+name+'/'+version;
+    versionJsonLink = 'http://ue.17173cdn.com/repository/' + family + '/' + name + '/?define';
     versionDocLink = '/+/' + name + '/';
     lastestLink = '/+/' + name + '/';
   }
