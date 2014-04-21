@@ -7,10 +7,8 @@ exports.theme = __dirname
 exports.source = process.cwd()
 exports.output = path.join(process.cwd(), '_site')
 exports.permalink = '{{directory}}/{{filename}}.html'
-if (pkg.family === 'arale') {
-  exports.google = 'UA-36247332-1'
-} else if (pkg.family === 'alice') {
-  exports.google = 'UA-39169474-1'
+if (pkg.family === 'pandora') {
+  exports.google = 'UA-50206223-1'
 }
 exports.ignorefilter = function(filepath, subdir) {
   if (/^(_site|_theme|node_modules|\.idea)/.test(subdir)) {
@@ -27,7 +25,7 @@ exports.writers = [
 // end settings }}
 
 // extends for theme usage, that can be accessable by {{config.xxx}}
-exports.assets_host = 'http://assets.spmjs.org';
+exports.assets_host = 'http://ue.17173cdn.com/a/lib';
 
 exports.filters = {}
 
