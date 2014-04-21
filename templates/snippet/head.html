@@ -49,12 +49,7 @@
 
 {%- else %}
 
-<script src="{{config.assets_host}}/??
-seajs/seajs/2.2.0/sea.js,
-seajs/seajs-combo/1.0.1/seajs-combo.js,
-seajs/seajs-style/1.0.2/seajs-style.js,
-seajs/seajs-health/0.1.0/seajs-health.js,
-jquery/jquery/1.7.2/jquery.js"></script>
+<script src="{{config.assets_host}}/seajs-2.2.1_jquery-2.1.0.js"></script>
 
 {%- if pkg|is_plugin_text or pkg|is_runtime_handlebars %}
 <script src="{{config.assets_host}}/seajs/seajs-text/1.0.2/seajs-text.js"></script>
@@ -81,10 +76,10 @@ jquery/jquery/1.7.2/jquery.js"></script>
 
   seajs.config({
     alias: {
-      "$": 'jquery/jquery/1.7.2/jquery',
-      "$-debug": 'jquery/jquery/1.7.2/jquery-debug',
-      "jquery": 'jquery/jquery/1.7.2/jquery',
-      "jquery-debug": 'jquery/jquery/1.7.2/jquery-debug',
+      "$": 'jquery/jquery/2.1.0/jquery',
+      "$-debug": 'jquery/jquery/2.1.0/jquery-debug',
+      "jquery": 'jquery/jquery/2.1.0/jquery',
+      "jquery-debug": 'jquery/jquery/2.1.0/jquery-debug',
       expect: "gallery/expect/0.2.0/expect",
       puerh: "popomore/puerh/0.1.0/puerh",
       handlebars: "gallery/handlebars/1.0.2/handlebars",
@@ -99,7 +94,7 @@ jquery/jquery/1.7.2/jquery.js"></script>
       return uri;
     }, function(uri) {
       var m = uri.match(/([A-Za-z\-]+)\/[A-Za-z\-]+\/[\.0-9]+\/.+/);
-      if (m && /^alipay|anima$/.test(m[1])) {
+      if (m && /^alipay$/.test(m[1])) {
         return 'http://yuan.alipay.im/assets/' + m[0];
       }
       return uri;
@@ -139,7 +134,7 @@ jquery/jquery/1.7.2/jquery.js"></script>
     {%- endif %}
 
     seajs.config({alias: {
-      "$-debug": 'jquery/jquery/1.7.2/jquery-debug'
+      "$-debug": 'jquery/jquery/2.1.0/jquery-debug'
       {%- for value in src.alias %}
         ,"{{loop.key}}": resolve("{{value}}")
       {%- endfor %}
